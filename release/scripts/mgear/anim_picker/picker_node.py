@@ -261,10 +261,10 @@ class DataNode(object):
         file_path = self.get_file_path()
         if not file_path:
             return
-        if not os.path.exists(file_path):
+        if not os.path.exists(file_handlers._convert_path_token(file_path)):
             return
 
-        return file_handlers.read_data_file(file_path)
+        return file_handlers.read_data_file(file_path=file_path)
 
     def read_data(self, from_file=True):
         '''Read picker data
