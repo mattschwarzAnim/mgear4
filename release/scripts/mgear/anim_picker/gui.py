@@ -44,6 +44,7 @@ from .widgets import overlay_widgets
 
 from .handlers import __EDIT_MODE__
 from .handlers import __SELECTION__
+from .handlers.file_handlers import _convert_path_token
 from six.moves import range
 
 # constants -------------------------------------------------------------------
@@ -1200,7 +1201,7 @@ class GraphicViewWidget(QtWidgets.QGraphicsView):
         background = data.get("background", None)
         background_size = data.get("background_size", None)
         if background:
-            self.set_background(background)
+            self.set_background(_convert_path_token(background))
             if background_size:
                 self.resize_background_image(background_size[0],
                                              background_size[1])
